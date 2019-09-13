@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Hello World</title>
+
+    <!-- REACT LIBRARIES -->
+    <script src="https://unpkg.com/react@16/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+    <!-- Don't use this in production: -->
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
+    <!-- BOOTSTRAP LIBRARIES -->
+    <!-- Latest compiled and minified CSS -->
+    <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous"> -->
+    <!-- Latest compiled and minified JavaScript -->
+    <!-- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script> -->
+
+    <!-- CUSTOM CSS FILES -->
+    <link rel="stylesheet" type="text/css" href="./style.css">
+
+    <!-- CUSTOM JS FILES -->
+    <!-- <script type="text/javascript" src="hello.js"></script> -->
+
+
+
+  </head>
+  <body>
+
+    <div id="root"></div>
+    <script type="text/babel">
+
+      // FUNCTION BASED COMPONENT
+
+
+      // CLASS BASED COMPONENTS
+      class HotNews extends React.Component {
+
+        // This function is for Edit Button
+        edit(){
+          alert("Edit button clicked");
+        }
+
+        // This function is for Delete Button
+        delete(){
+          alert("Delete button clicked");
+        }
+
+        // This function is for Love Button
+        love(){
+          alert("You love Python and React")
+        }
+
+        render() {
+          const props = this.props;
+          return(
+            <div className="newsContainer">
+              <span><strong>{ props.title }</strong></span>
+              <span><strong>{ props.children }</strong></span>
+              <div className="action">
+                <button className="edit" type="button" name="edit" onClick={this.edit}>Edit</button>
+                <button className="delete" type="button" name="delete" onClick={() => this.delete()}>Delete</button>
+              </div>
+            </div>
+          )
+        }
+      }
+
+      ReactDOM.render(
+        <div className="container">
+          < HotNews title="Mustafiz played Today" />
+          < HotNews title="Brazil is the best team" />
+          <HotNews>Bercelona is the best club</HotNews>
+          <HotNews>Argentina is the best FOINNI team</HotNews>
+
+        </div>,
+        document.getElementById('root')
+      );
+
+    </script>
+
+  </body>
+
+<!-- ROUGH -->
+<!-- <img src="mustafiz1.jpg" alt="" height="100" width="150" /> -->
+<!-- <button className="love" type="button" name="love" onClick={function(){this.love()}}>Love</button> -->
+
+</html>
