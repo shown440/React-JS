@@ -111,11 +111,21 @@
           }else{
             return(<p>{this.state.description}</p>)
           }
-        }  
+        } 
+
+        // This function will Depricate from next Standard of JS/ES
+        // componentWillMount(){
+        //   console.log("FROM Component Will Mount");
+        // } 
+        // This function will use Instead of 'componentWillMount()'
+        componentDidMount(){
+          console.log("FROM Component Did Mount");
+        } 
 
         render() {
           const props = this.props;
          // console.log("Is Editing: ", this.state.isEditing)
+         console.log("FROM Render function");
 
           return(
             <div className="newsContainer">
@@ -137,9 +147,7 @@
       ReactDOM.render(
         <div className="container">
           <HotNews title="News 1">Mustafiz played Today</HotNews>
-          <HotNews title="News 2">Brazil is the best team</HotNews>
-          <HotNews title="News 3">Bercelona is the best club</HotNews>
-          <HotNews title="News 4">Argentina is the best FOINNI team</HotNews>
+          
 
         </div>,
 
@@ -154,4 +162,7 @@
 <!-- <img src="mustafiz1.jpg" alt="" height="100" width="150" /> -->
 <!-- <button className="love" type="button" name="love" onClick={function(){this.love()}}>Love</button> -->
 
+<!-- <HotNews title="News 2">Brazil is the best team</HotNews>
+<HotNews title="News 3">Bercelona is the best club</HotNews>
+<HotNews title="News 4">Argentina is the best FOINNI team</HotNews> -->
 </html>

@@ -51,7 +51,7 @@
 
           this.state = {
             isEditing: false,
-            description: props.children,
+
           };
 
           this.inputText = React.createRef()
@@ -65,18 +65,6 @@
             isEditing: true,
           });
 
-        }
-
-        // this function is for save Button
-        save(){
-          console.log(this.inputText.current);
-          console.log(this.inputText.current.value);
-
-          const inputValue = this.inputText.current.value;
-          this.setState({
-            isEditing: false,
-            description: inputValue,
-          });
         }
 
         // This function is for Delete Button
@@ -94,7 +82,7 @@
         }
 
         renderEdit() {
-          // {this.edit()}
+           {this.edit()}
           const isEditing = this.state.isEditing;
           console.log(isEditing);
           const props = this.props;
@@ -102,14 +90,12 @@
           if(isEditing === true){
             return(
               <React.Fragment>
-                <input 
-                className="inputEdit" defaultValue={props.children}
-                ref={this.inputText}/>
-                <button className="save" type="button" onClick={() => this.save()}>Save</button>
+                <input >{this.props.children}</input>
+                <button>Save</button>
               </React.Fragment>
             )
           }else{
-            return(<p>{this.state.description}</p>)
+            return(<p>{this.props.msg}</p>)
           }
         }  
 
@@ -122,9 +108,9 @@
          
               // Class values
               <h1>{props.title}</h1>
-              {this.renderEdit()}
+             
               <div className="action">
-                <button className="edit" type="button" name="edit" onClick={() => this.edit()}>Edit</button>
+                <button className="edit" type="button" name="edit" onClick={() => this.renderEdit()}>Edit</button>
                 <button className="delete" type="button" name="delete" onClick={() => this.delete()}>Delete</button>
                 <button className="love" type="button" name="love" onClick={() => this.love()}>Love</button>
               </div>
@@ -136,7 +122,7 @@
 
       ReactDOM.render(
         <div className="container">
-          <HotNews title="News 1">Mustafiz played Today</HotNews>
+          <HotNews title="News 1" msg="Mustafiz played Today"></HotNews>
           <HotNews title="News 2">Brazil is the best team</HotNews>
           <HotNews title="News 3">Bercelona is the best club</HotNews>
           <HotNews title="News 4">Argentina is the best FOINNI team</HotNews>
