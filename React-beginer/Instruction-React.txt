@@ -1,0 +1,22 @@
+create app:
+===========
+	1. npx create-reatc-app . || for create app in current folder
+	   npx create-reatc-app git-finder . || for create app with name 'git-finder'
+	   
+	#  npm install -g create-react-app || from npm-> universal installation
+	#  create-react-app [quotes_react = application name]
+
+start react app:
+================
+	2.  npm start
+Build app:
+==========
+	3. npm run build
+
+
+
+axios install:
+==============
+	2. npm install -g axios [install globally]
+	   npm install axios [install locally for current project]
+	 
